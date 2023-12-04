@@ -1,15 +1,18 @@
-import path from 'path';
-
 // @ts-check
-const { defineConfig, devices } = require('@playwright/test');
-
-export const STORAGE_STATE = path.join(__dirname, 'some_data/auth/user.json')
+import { defineConfig, devices } from '@playwright/test';
+// import { configDotenv } from 'dotenv';
+import path from 'path';
+import { config } from 'process';
+export const STORAGE_STATE = path.join(__dirname, 'playwright/.auth/user.json');
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
+// configDotenv({
+//   path: `./env/.env.${process.env.ENV}`
+// })
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -26,7 +29,7 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 4 : undefined,
+  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html'],
             ['list'],
@@ -36,15 +39,14 @@ module.exports = defineConfig({
     viewport: { width: 1280, height: 720 },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'https://www.guru99.com',
-    baseURL: 'https://www.google.com',
+    baseURL: 'http://5.189.186.217',
     // baseURL: process.env.ENV_URL,
     // baseURL: process.env.URL === '1' ? 'https://www.test.guru99.com' : 'https://www.guru99.com',
-    // baseURL: process.env.URL === '1' ? 'https://www.test.guru99.com' : 'https://www.guru99.com',
-    locale: 'en-GB',
-    timezoneId: 'Europe/London',
-    permissions: ['geolocation'],
-    geolocation: { longitude: -0.127647, latitude: 51.507351 },
-    userAgent: 'blah-blah',
+    // locale: 'de-DE',
+    // timezoneId: 'Europe/Berlin',
+    // permissions: ['geolocation'],
+    // geolocation: { longitude: 52.150002, latitude: 10.333333 },
+    // userAgent: 'blah-blah',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -53,27 +55,29 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'log_in',
-      testMatch: '**/*.setup.js'
+      testMatch: /global\.setup\.js/
     },
     {
-      name: 'logged in',
+      name: 'login',
       testMatch: 'newborn.spec.js',
       dependencies: ['log_in'],
-      use: {storageState: STORAGE_STATE, },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: STORAGE_STATE, },
     },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },  
     },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
