@@ -1,0 +1,160 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Елена\\OneDrive\\Рабочий стол\\JS course\\homework_playwright\\playwright.config.js",
+    "rootDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results-21-11.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "log_in",
+        "name": "log_in",
+        "testDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/global\\.setup\\.js/"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "login",
+        "name": "login",
+        "testDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "newborn.spec.js"
+        ],
+        "timeout": 15000
+      },
+      {
+        "outputDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/Елена/OneDrive/Рабочий стол/JS course/homework_playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.js"
+        ],
+        "timeout": 15000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.39.0",
+    "workers": 8,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "request_homework.spec.js",
+      "file": "request_homework.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Verification steps for newborn website",
+          "file": "request_homework.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Create a new category and product",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 15000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 4194,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "AUTH Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsQGVsZW5hLmNvbSIsInVzZXJJZCI6IjY1NjM4ZWMxMzQ2Yzc3MGUwZGQyZDVmMSIsImlhdCI6MTcwMTcyNTE4NCwiZXhwIjoxNzAxNzI4Nzg0fQ.3kCVhCzKfBsEXPuoooIAy7xgGenOduQvXngBOhLcxMU\n"
+                        },
+                        {
+                          "text": "categoryId: 656e4404346c770e0dd30d4f\n"
+                        },
+                        {
+                          "text": "create_Category_With_Name: Car\n"
+                        },
+                        {
+                          "text": "productId: 656e4405346c770e0dd30d54\n"
+                        },
+                        {
+                          "text": "create_Product_With_Name: Luxurious Wooden Chips\n"
+                        },
+                        {
+                          "text": "message: Car Категорію видалено.\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-12-04T21:26:21.335Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaa210422bccdc13e20d-573432a3f7052a67f18d",
+              "file": "request_homework.spec.js",
+              "line": 36,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2023-12-04T21:26:17.521Z",
+    "duration": 8997.565999999999
+  }
+}
