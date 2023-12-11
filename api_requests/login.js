@@ -35,5 +35,5 @@ describe("Login & getting token", () => {
     token_value = getToken.data.token;
     data.token = token_value;
     fs.writeFileSync("api_requests/data/dummy_data.json", JSON.stringify(data));
-  });
-});
+  })
+})
