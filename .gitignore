@@ -1,0 +1,11 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+tests/generated.spec.js
+tests/global.setup.js
+tests/guru.spec.js
+tests/newborn.spec.js
+tests/request_homework.spec.js
+tests/search.spec.js
